@@ -1,0 +1,10 @@
+tensorflow
+opencv-python
+matplotlib
+seaborn
+scikit-learn
+kagglehub
+pandas
+numpy
+flask
+flask-cors
