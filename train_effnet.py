@@ -32,7 +32,7 @@ def main():
                   loss='categorical_crossentropy', 
                   metrics=['accuracy'])
                   
-    # Train for a bit to get some results
+   
     model.fit(
         train_gen,
         validation_data=val_gen,
