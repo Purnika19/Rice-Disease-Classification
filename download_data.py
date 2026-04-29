@@ -4,19 +4,17 @@ import shutil
 
 def download_dataset():
     print("Downloading dataset...")
-    # Download latest version
+  
     path = kagglehub.dataset_download("vbookshelf/rice-leaf-diseases")
     
     print("Path to dataset files:", path)
     
-    # Destination directory in project root
+ 
     dest_dir = "data"
     if not os.path.exists(dest_dir):
         os.makedirs(dest_dir)
     
-    # Kagglehub usually downloads to a cache folder. 
-    # Let's move it to our project folder for easier access.
-    # Note: vbookshelf/rice-leaf-diseases has a folder called 'rice_leaf_diseases' inside
+
     
     source_folder = os.path.join(path, "rice_leaf_diseases")
     if os.path.exists(source_folder):
@@ -32,7 +30,7 @@ def download_dataset():
                 shutil.copy2(s, d)
         print("Dataset successfully moved to 'data' folder.")
     else:
-        # If the structure is different, just copy everything from path
+       
         print(f"Moving files from {path} to {dest_dir}")
         for item in os.listdir(path):
             s = os.path.join(path, item)
