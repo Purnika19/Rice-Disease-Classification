@@ -15,7 +15,7 @@ def load_mobilenet_model():
 
 
 def get_class_names():
-    # Automatically get class names from the data folder
+    
     data_dir = 'data'
     if not os.path.exists(data_dir):
         return ['Bacterial leaf blight', 'Brown spot', 'Leaf smut'] # Default fallback
@@ -23,12 +23,12 @@ def get_class_names():
     return classes
 
 def predict():
-    # 1. Initialize Tkinter and hide the root window
+
     root = Tk()
     root.withdraw()
     root.attributes("-topmost", True)
     
-    # 2. Ask user to select an image
+
     print("Please select an image file...")
     file_path = filedialog.askopenfilename(
         title="Select Rice Leaf Image",
@@ -39,7 +39,7 @@ def predict():
         print("No file selected. Exiting.")
         return
 
-    # 3. Load and Preprocess the image
+    
     img_size = (224, 224)
     image = cv2.imread(file_path)
     if image is None:
@@ -48,12 +48,12 @@ def predict():
         
     image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
     
-    # Resize and normalize
+   
     img_input = cv2.resize(image_rgb, img_size)
     img_input = img_input / 255.0
     img_input = np.expand_dims(img_input, axis=0)
 
-    # 4. Load model and predict
+    
     try:
         model = load_mobilenet_model()
         class_names = get_class_names()
