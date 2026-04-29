@@ -101,7 +101,7 @@ def evaluate_metrics(model, model_name, val_gen):
     
     report = classification_report(y_true, y_pred, target_names=class_labels, output_dict=True)
     
-    # Confusion Matrix
+  
     cm = confusion_matrix(y_true, y_pred)
     plt.figure(figsize=(10, 8))
     sns.heatmap(cm, annot=True, fmt='d', xticklabels=class_labels, yticklabels=class_labels, cmap='Greens', annot_kws={"size": 16})
@@ -165,7 +165,7 @@ def main():
     print(df_results[['Model', 'Accuracy', 'Macro F1']])
     df_results.to_csv('results/detailed_model_comparison.csv', index=False)
     
-    # Plot Comparison
+
     plt.figure(figsize=(12, 6))
     for name in histories:
         plt.plot(histories[name].history['val_accuracy'], label=name, linewidth=2)
